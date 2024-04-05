@@ -1,0 +1,91 @@
+/* Content Stylings */
+.content {
+	& > p {
+		@apply mb-6  /*last-of-type:mb-0*/  leading-[1.08];
+
+		font-size: clamp(18px, 0.92rem + 0.4vw, 25px);
+	}
+
+	/* PER DARE UNO SPAZIO INIZIALE ALLA PRIMA RIGA */
+	/* & > p:first-of-type {
+      @apply indent-[10%]
+    } */
+
+	& > p > a {
+		@apply underline hover:text-opacity-25 focus:text-opacity-25;
+	}
+
+	& > h1,
+	& > .h1 {
+		@apply text-3xl md:text-5xl;
+	}
+
+	& > h2,
+	& > .h2 {
+		@apply text-2xl md:text-3xl;
+	}
+}
+
+.content--no-indent {
+	& > p:first-of-type {
+		@apply indent-0;
+	}
+}
+
+/* Heading Defaults */
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+	@apply p-0 mb-6;
+}
+
+.display-heading {
+	@apply /*font-serif*/ leading-[0.95] md:leading-[0.9];
+
+	font-size: clamp(40px, 0.92rem + 5vw, 130px);
+}
+
+.display-heading--small {
+	@apply font-serif leading-[0.9];
+
+	font-size: clamp(27px, 0.92rem + 2vw, 130px);
+
+	@screen md {
+		font-size: clamp(45px, 0.92rem + 5vw, 130px);
+	}
+}
+
+.list-heading {
+	@apply font-serif leading-[0.9];
+
+	font-size: clamp(28px, 0.62rem + 5vw, 80px);
+}
+
+.list-heading--small {
+	@apply font-serif leading-[0.9];
+
+	font-size: clamp(22px, 0.62rem + 3vw, 55px);
+}
+
+.list-heading--meta {
+	@apply mb-0 leading-[1.08];
+
+	font-size: clamp(18px, 0.92rem + 0.4vw, 25px);
+}
+
+/* margins */
+
+.margin--large {
+	@apply py-16 xl:mb-16;
+}
+
+.margin {
+	@apply py-8 xl:mb-8;
+}
+
+.margin--small {
+	@apply pl-8 xl:mb-8;
+}
