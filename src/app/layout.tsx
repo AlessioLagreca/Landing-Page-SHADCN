@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./styles/globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -15,8 +16,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
-			<body className={rubik.className}>{children}</body>
-		</html>
+		<ClerkProvider>
+			<html lang='en'>
+				<body className={rubik.className}>{children}</body>
+			</html>
+		</ClerkProvider>
 	);
 }

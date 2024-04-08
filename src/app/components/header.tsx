@@ -1,10 +1,19 @@
-import React, { useState } from "react";
 import Container from "./wrappers/container";
 import Link from "next/link";
 import Image from "next/image";
 import OpacityAnim from "./wrappers/opacityAnim";
+import { Divider } from "@chakra-ui/react";
+import { useState } from "react";
+import { SignInButton, useUser } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 
-const Header: React.FC = () => {
+type Props = {};
+
+const Header: React.FC = (props: Props) => {
+	////////////////////////
+	// SOME HOOKS FROM CLERK
+	const { isLoaded, isSignedIn, user } = useUser();
+
 	const [isOpen, setIsOpen] = useState(false);
 
 	const customVariants = {
@@ -23,33 +32,26 @@ const Header: React.FC = () => {
 					<Container>
 						<div className='flex flex-wrap items-center'>
 							<Link href='/'>
-								<Image
-									src='/images/logo-bookmark.svg'
-									alt='Logo'
-									width={150}
-									height={150}
-								/>
+								<Image src='/images/logo-bookmark.svg' alt='Logo' width={150} height={150} />
 							</Link>
 
 							<nav className='items-center hidden w-full ml-auto space-x-8 text-sm md:flex md:text-base md:w-auto '>
-								<span className='text-sm hover:text-soft-red hover:cursor-pointer'>
-									FEATURES
-								</span>
-								<span className='text-sm hover:text-soft-red hover:cursor-pointer'>
-									PRICING
-								</span>
-								<span className='text-sm hover:text-soft-red hover:cursor-pointer'>
-									CONTACT
-								</span>
-								<button className='px-8 py-3 text-white border-2 border-transparent rounded-md bg-soft-red hover:bg-white hover:text-soft-red hover:border-2 hover:border-soft-red'>
-									LOGIN
-								</button>
+								<span className='text-sm hover:text-soft-red hover:cursor-pointer'>FEATURES</span>
+								<span className='text-sm hover:text-soft-red hover:cursor-pointer'>PRICING</span>
+								<span className='text-sm hover:text-soft-red hover:cursor-pointer'>CONTACT</span>
+
+								{isSignedIn ? (
+									<UserButton afterSignOutUrl='/' />
+								) : (
+									<SignInButton>
+										<button className='px-8 py-3 text-white border-2 border-transparent rounded-md bg-soft-red hover:bg-white hover:text-soft-red hover:border-2 hover:border-soft-red'>
+											LOGIN
+										</button>
+									</SignInButton>
+								)}
 							</nav>
 
-							<button
-								className='ml-auto md:hidden'
-								onClick={toggleNavbar}
-							>
+							<button className='ml-auto md:hidden' onClick={toggleNavbar}>
 								<Image
 									src='/images/icon-hamburger.svg'
 									alt='menu'
