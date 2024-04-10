@@ -15,9 +15,9 @@ export default function Home() {
 
 	return (
 		<ReactLenis root>
-			<div className='relative overflow-x-hidden '>
+			<Header />
+			<div className='relative overflow-x-hidden'>
 				<ChakraProvider>
-					<Header />
 					<Main />
 					<Footer />
 				</ChakraProvider>
