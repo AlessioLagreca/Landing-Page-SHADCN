@@ -27,15 +27,9 @@ const Header: React.FC = () => {
 						</Link>
 
 						<nav className='flex flex-col items-center w-full gap-8 text-sm text-white md:gap-16 md:flex-row md:text-base md:w-auto'>
-							<span className='text-sm hover:text-soft-red hover:cursor-pointer'>
-								FEATURES
-							</span>
-							<span className='text-sm hover:text-soft-red hover:cursor-pointer'>
-								PRICING
-							</span>
-							<span className='text-sm hover:text-soft-red hover:cursor-pointer'>
-								CONTACT
-							</span>
+							<span className='text-sm hover:text-primary hover:cursor-pointer'>FEATURES</span>
+							<span className='text-sm hover:text-primary hover:cursor-pointer'>PRICING</span>
+							<span className='text-sm hover:text-primary hover:cursor-pointer'>CONTACT</span>
 						</nav>
 					</div>
 					<div className='relative flex justify-center gap-16 mt-8 md:mt-0'>

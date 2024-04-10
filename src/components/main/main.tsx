@@ -4,7 +4,7 @@ import TabsComponent from "./tabs";
 import Faq from "./faq";
 import { useRef, useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
-import { fade } from "../../helpers/transition";
+import { fade } from "../../app/helpers/transition";
 
 const Main = (): JSX.Element => {
 	const ref = useRef(null);
