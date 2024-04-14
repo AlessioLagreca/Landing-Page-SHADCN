@@ -33,7 +33,7 @@ const Header: React.FC = (props: Props) => {
 	return (
 		// <OpacityAnim variants={customVariants}>
 
-		<header className='glass py-4 sticky top-0 z-50 bg-background '>
+		<header className='glass py-4 md:py-6 sticky top-0 z-50 bg-background '>
 			{!isOpen && (
 				<Container extraClasses='flex flex-col justify-center '>
 					<div className='flex flex-wrap items-center sticky top-0'>
@@ -42,9 +42,9 @@ const Header: React.FC = (props: Props) => {
 						</Link>
 
 						<nav className='items-center hidden w-full ml-auto space-x-8 text-sm md:flex md:text-base md:w-auto '>
-							<span className='text-sm hover:text-primary hover:cursor-pointer'>FEATURES</span>
-							<span className='text-sm hover:text-primary hover:cursor-pointer'>PRICING</span>
-							<span className='text-sm hover:text-primary hover:cursor-pointer'>CONTACT</span>
+							<span className='text-base hover:text-primary hover:cursor-pointer'>FEATURES</span>
+							<span className='text-base hover:text-primary hover:cursor-pointer'>PRICING</span>
+							<span className='text-base hover:text-primary hover:cursor-pointer'>CONTACT</span>
 
 							{isSignedIn ? (
 								<UserButton afterSignOutUrl='/' />
