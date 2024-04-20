@@ -3,6 +3,7 @@ import { Rubik } from "next/font/google";
 import "./styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import Provider from "./_provider";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -20,9 +21,11 @@ export default function RootLayout({
 		<ClerkProvider>
 			<html lang='en'>
 				<body className={rubik.className}>
-					<ThemeProvider attribute='class' defaultTheme='dark' enableSystem disableTransitionOnChange>
-						{children}
-					</ThemeProvider>
+					<Provider>
+						<ThemeProvider attribute='class' defaultTheme='dark' enableSystem disableTransitionOnChange>
+							{children}
+						</ThemeProvider>
+					</Provider>
 				</body>
 			</html>
 		</ClerkProvider>

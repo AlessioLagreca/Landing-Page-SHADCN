@@ -6,21 +6,12 @@ import { fade } from "../../app/helpers/transition";
 import Customers from "./customers";
 import LogoSlider from "./logos";
 import Pricing from "./pricing";
+import ContactForm from "./contact";
 
 const Main = (): JSX.Element => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true });
 	const controls = useAnimation();
-	const logos = [
-		"./images/logoipsum-214.svg",
-		"./images/logoipsum-242.svg",
-		"./images/logoipsum-248.svg",
-		"./images/logoipsum-268.svg",
-		"./images/logoipsum-273.svg",
-		"./images/logoipsum-275.svg",
-		"./images/logoipsum-277.svg",
-		// Add more logos as needed
-	];
 
 	useEffect(() => {
 		if (isInView) {
@@ -33,8 +24,9 @@ const Main = (): JSX.Element => {
 			<motion.div variants={fade}>
 				<Hero />
 				<LogoSlider />
-				<Pricing />
 				<Customers />
+				<Pricing />
+				<ContactForm />
 				<Faq />
 			</motion.div>
 		</>

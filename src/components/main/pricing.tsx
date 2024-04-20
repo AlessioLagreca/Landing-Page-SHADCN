@@ -6,6 +6,8 @@ import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
+import Container from "../wrappers/container";
+import OpacityAnim from "../wrappers/opacityAnim";
 
 type PricingSwitchProps = {
 	onSwitch: (value: string) => void;
@@ -151,15 +153,25 @@ export default function Pricing() {
 			exclusive: true,
 		},
 	];
+
+	const header = {
+		hidden: { opacity: 0, y: "30%" },
+		visible: { opacity: 1, transition: { delay: 0.3 }, y: 0 },
+	};
+
 	return (
-		<div className='py-8'>
-			<PricingHeader title='Pricing Plans' subtitle="Choose the plan that's right for you" />
-			<PricingSwitch onSwitch={togglePricingPeriod} />
-			<section className='flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8 mt-8'>
-				{plans.map((plan) => {
-					return <PricingCard key={plan.title} {...plan} isYearly={isYearly} />;
-				})}
-			</section>
-		</div>
+		<Container extraClasses='mt-20'>
+			<OpacityAnim variants={header}>
+				<div className='py-8'>
+					<PricingHeader title='Pricing Plans' subtitle="Choose the plan that's right for you" />
+					<PricingSwitch onSwitch={togglePricingPeriod} />
+					<section className='flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8 mt-8'>
+						{plans.map((plan) => {
+							return <PricingCard key={plan.title} {...plan} isYearly={isYearly} />;
+						})}
+					</section>
+				</div>
+			</OpacityAnim>
+		</Container>
 	);
 }
