@@ -7,6 +7,7 @@ import Customers from "./customers";
 import LogoSlider from "./logos";
 import Pricing from "./pricing";
 import ContactForm from "./contact";
+import { Element, animateScroll as scroll, scrollSpy } from "react-scroll";
 
 const Main = (): JSX.Element => {
 	const ref = useRef(null);
@@ -25,7 +26,9 @@ const Main = (): JSX.Element => {
 				<Hero />
 				<LogoSlider />
 				<Customers />
-				<Pricing />
+				<Element name='Pricing'>
+					<Pricing />
+				</Element>
 				<ContactForm />
 				<Faq />
 			</motion.div>

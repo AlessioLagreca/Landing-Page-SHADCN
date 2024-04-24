@@ -160,7 +160,7 @@ export default function Pricing() {
 	};
 
 	return (
-		<Container extraClasses='mt-20'>
+		<Container extraClasses='mt-20' id='pricing'>
 			<OpacityAnim variants={header}>
 				<div className='py-8'>
 					<PricingHeader title='Pricing Plans' subtitle="Choose the plan that's right for you" />

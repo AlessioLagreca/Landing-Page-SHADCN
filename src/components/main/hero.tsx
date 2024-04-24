@@ -49,7 +49,7 @@ const Hero = (): JSX.Element => {
 					</div>
 				</OpacityAnim>
 				<OpacityAnim variants={headerRight} className='xl:pl-8 md:mt-0 mt-12'>
-					<Image src='/images/relax.svg' alt='hero image' width={500} height={500} />
+					<Image src='/images/relax.svg' alt='hero image' width={600} height={600} />
 				</OpacityAnim>
 			</section>
 		</Container>

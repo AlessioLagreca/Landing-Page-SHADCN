@@ -1,16 +1,19 @@
 import Container from "./wrappers/container";
 import Link from "next/link";
 import Image from "next/image";
-import OpacityAnim from "./wrappers/opacityAnim";
 import { useState } from "react";
 import { SignInButton, useUser } from "@clerk/nextjs";
 import { UserButton } from "@clerk/nextjs";
 import { DarkModeToggle } from "./ui/darkM-button";
 import { motion } from "framer-motion";
-import { fade } from "@/app/helpers/transition";
 import { CircleX, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { NavigationMenuDemo } from "./main/Navigation";
+import { Link as ScrollLink } from "react-scroll";
+
+const MotionLink = motion(Link);
+
+const MotionButton = motion(Button);
 
 const customVariants = {
 	hidden: { opacity: 0 },
@@ -44,7 +47,15 @@ const Header: React.FC = (props: Props) => {
 
 						<nav className='items-center hidden w-full ml-auto space-x-8 text-sm md:flex md:text-base md:w-auto '>
 							<span className='text-base hover:text-primary hover:cursor-pointer'>FEATURES</span>
-							<span className='text-base hover:text-primary hover:cursor-pointer'>PRICING</span>
+							<ScrollLink
+								to='Pricing'
+								smooth={true}
+								duration={500}
+								className='text-base hover:text-primary hover:cursor-pointer'
+								offset={-150}
+							>
+								<span className='text-base hover:text-primary hover:cursor-pointer'>PRICING</span>
+							</ScrollLink>
 							<span className='text-base hover:text-primary hover:cursor-pointer'>CONTACT</span>
 
 							{isSignedIn ? (
