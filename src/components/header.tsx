@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { SignInButton, useUser } from "@clerk/nextjs";
 import { UserButton } from "@clerk/nextjs";
-import { DarkModeToggle } from "./ui/darkM-button";
 import { motion } from "framer-motion";
 import { CircleX, Menu } from "lucide-react";
 import { Button } from "./ui/button";
@@ -67,7 +66,6 @@ const Header: React.FC = (props: Props) => {
 									</Button>
 								</SignInButton>
 							)}
-							<DarkModeToggle />
 						</nav>
 
 						<button className='ml-auto md:hidden' onClick={toggleNavbar}>
