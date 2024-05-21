@@ -22,7 +22,7 @@ export default function RootLayout({
 			<html lang='en'>
 				<body className={rubik.className}>
 					<Provider>
-						<ThemeProvider attribute='class' defaultTheme='dark' enableSystem disableTransitionOnChange>
+						<ThemeProvider attribute='class' defaultTheme='light' disableTransitionOnChange>
 							{children}
 						</ThemeProvider>
 					</Provider>
