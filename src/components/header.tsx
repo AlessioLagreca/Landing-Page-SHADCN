@@ -1,16 +1,18 @@
 import Container from "./wrappers/container";
 import Link from "next/link";
 import Image from "next/image";
-import OpacityAnim from "./wrappers/opacityAnim";
-import { Divider } from "@chakra-ui/react";
 import { useState } from "react";
 import { SignInButton, useUser } from "@clerk/nextjs";
 import { UserButton } from "@clerk/nextjs";
-import { DarkModeToggle } from "./ui/darkM-button";
 import { motion } from "framer-motion";
-import { fade } from "@/app/helpers/transition";
 import { CircleX, Menu } from "lucide-react";
 import { Button } from "./ui/button";
+import { NavigationMenuDemo } from "./main/Navigation";
+import { Link as ScrollLink } from "react-scroll";
+
+const MotionLink = motion(Link);
+
+const MotionButton = motion(Button);
 
 const customVariants = {
 	hidden: { opacity: 0 },
@@ -34,28 +36,36 @@ const Header: React.FC = (props: Props) => {
 		// <OpacityAnim variants={customVariants}>
 
 		<header className='glass py-4 md:py-6 sticky top-0 z-50 bg-background '>
-			{!isOpen && (
+			{isOpen === false && (
 				<Container extraClasses='flex flex-col justify-center '>
 					<div className='flex flex-wrap items-center sticky top-0'>
-						<Link href='/'>
+						<Link href='/' className='mr-4'>
 							<Image src='/images/logoipsum-248.svg' alt='Logo' width={80} height={20} />
 						</Link>
+						<NavigationMenuDemo />
 
 						<nav className='items-center hidden w-full ml-auto space-x-8 text-sm md:flex md:text-base md:w-auto '>
 							<span className='text-base hover:text-primary hover:cursor-pointer'>FEATURES</span>
-							<span className='text-base hover:text-primary hover:cursor-pointer'>PRICING</span>
+							<ScrollLink
+								to='Pricing'
+								smooth={true}
+								duration={500}
+								className='text-base hover:text-primary hover:cursor-pointer'
+								offset={-150}
+							>
+								<span className='text-base hover:text-primary hover:cursor-pointer'>PRICING</span>
+							</ScrollLink>
 							<span className='text-base hover:text-primary hover:cursor-pointer'>CONTACT</span>
 
 							{isSignedIn ? (
 								<UserButton afterSignOutUrl='/' />
 							) : (
 								<SignInButton>
-									<button className='px-8 py-3 text-white border-2 border-transparent rounded-md bg-soft-red hover:bg-white hover:text-soft-red hover:border-2 hover:border-soft-red'>
+									<Button variant='primary' size='mio' className='px-8 py-3 border-2 border-transparent rounded-md'>
 										LOGIN
-									</button>
+									</Button>
 								</SignInButton>
 							)}
-							<DarkModeToggle />
 						</nav>
 
 						<button className='ml-auto md:hidden' onClick={toggleNavbar}>

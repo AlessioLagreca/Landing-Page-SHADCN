@@ -77,7 +77,7 @@
 
 /******************* Logo Slider *******************/
 
-.scroller__inner {
+/* .scroller__inner {
 	padding-block: 1rem;
 	display: flex;
 	flex-wrap: wrap;
@@ -116,4 +116,4 @@
 	to {
 		transform: translate(calc(-50% - 0.5rem));
 	}
-}
+} */

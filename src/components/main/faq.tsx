@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-import Container2 from "../wrappers/container2";
+import Container from "../wrappers/container";
 import OpacityAnim from "../wrappers/opacityAnim";
 
 // Define the custom variants for the animation
@@ -12,7 +12,7 @@ const customVariants = {
 const Faq = (): JSX.Element => {
 	return (
 		<>
-			<Container2>
+			<Container extraClasses='max-w-3xl mt-28'>
 				<Accordion type='single' collapsible>
 					<AccordionItem value='item-1'>
 						<AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -31,7 +31,7 @@ const Faq = (): JSX.Element => {
 						<AccordionContent>Yes. It comes with default styles that matches the Chakra UI theme.</AccordionContent>
 					</AccordionItem>
 				</Accordion>
-			</Container2>
+			</Container>
 		</>
 	);
 };

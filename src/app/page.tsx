@@ -1,6 +1,5 @@
 "use client";
 
-import { ChakraProvider } from "@chakra-ui/react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { LazyMotion, domAnimation, m } from "framer-motion";
